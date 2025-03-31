@@ -1,0 +1,24 @@
+{
+    "音乐专辑与艺术家信息": [
+        "Album",
+        "Artist",
+        "Track",
+        "MediaType",
+        "Genre"
+    ],
+    "客户与员工管理": [
+        "Customer",
+        "Employee"
+    ],
+    "发票与销售记录": [
+        "Invoice",
+        "InvoiceLine",
+        "Customer",
+        "Track"
+    ],
+    "播放列表管理": [
+        "Playlist",
+        "PlaylistTrack",
+        "Track"
+    ]
+}

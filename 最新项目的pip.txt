@@ -1,0 +1,29 @@
+pip install pandas
+pip install sqlparse
+pip install openpyxl    
+pip install -U langgraph
+pip install langchain_openai
+pip install psycopg2
+pip install Pillow
+
+
+
+langchain_core
+langgraph
+Pillow
+sqlparse
+pandas
+chromadb
+sqlalchemy
+
+添加是否添加检查节点的选项
+编写文档
+上传pypi
+上传github
+添加前端页面
+
+数据库提示词
+检查节点
+timer
+前端页面 类似vanna
+

@@ -1,0 +1,9 @@
+langchain_core
+langgraph
+Pillow
+sqlparse
+pandas
+chromadb
+sqlalchemy
+langchain_openai
+psycopg2
