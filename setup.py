@@ -7,6 +7,7 @@ setup(
     description="A simple math utilities package",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
+    url="https://github.com/iooo2333/opentext2sql",
     packages=find_packages(exclude=["test_env", "train_data"]),
     classifiers=[
         "Programming Language :: Python :: 3",
