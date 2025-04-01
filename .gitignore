@@ -22,3 +22,5 @@ venv/
 .DS_Store  # macOS 生成的系统文件
 
 最新项目的pip.txt
+
+*.egg-info/
