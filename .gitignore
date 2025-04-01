@@ -1,0 +1,26 @@
+# 忽略 Python 编译文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 忽略环境变量文件
+.env
+*.env
+
+# 忽略虚拟环境目录
+venv/
+.virtualenvs/
+
+# 忽略日志文件
+logs/
+*.log
+
+# 忽略 IDE 和编辑器相关的文件
+.vscode/
+.idea/
+*.swp
+
+# 忽略 MacOS 生成的系统文件
+.DS_Store
+
