@@ -1,4 +1,4 @@
-RAG Training SQL Generator
+## RAG Training SQL Generator
 
 本项目提供一套基于 RAG 思想的 SQL 生成训练流程，通过训练问答数据自动构造 SQL 查询。利用 ChromaDB 作为向量存储，并结合多个智能体实现表选择和表分组，从而支持多种数据库配置（例如 PostgreSQL 和 SQLite），并通过 Excel 文件自动构建训练数据。
 
