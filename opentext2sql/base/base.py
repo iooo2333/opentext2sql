@@ -71,7 +71,6 @@ class TrainModel:
         # 检查必需的顶级配置项
         required_keys = [
             'train_data_directory',
-            'excel_filename',
             'db_config',
             'model_name',
             'openai_api_base',

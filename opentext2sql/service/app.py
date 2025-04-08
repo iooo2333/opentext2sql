@@ -1,10 +1,10 @@
 from opentext2sql.agent.create_agent import Text2SqlAgentAutoSelectTable, Text2SqlAgentAutoSelectAspect
 from opentext2sql.chroma.chromadb_vector import ChromaDB_VectorStore
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 import traceback
 from fastapi.middleware.cors import CORSMiddleware
 
-from .models import InputMessage
+from .models import InputMessage,ConfigRequest
 from .utils import replace_nan_with_none
 from typing import Dict, Any
 
@@ -21,33 +21,30 @@ app.add_middleware(
     allow_headers=["*"],  # 允许所有头
 )
 
-config = None
+
 agent = None
 train_model = None
 
 @app.post("/set_config/")
-async def set_config(data: Dict[str, Any]):
-    """
-    Endpoint to receive and save configuration data
-    """
-    global config,agent
-    config = {
-        "train_data_directory": data.get("train_data_directory"),
-        "excel_filename": data.get("excel_filename"),
-        "db_config": {
-            "dialect": data.get("db_config", {}).get("dialect"),
-            "database": data.get("db_config", {}).get("database"),
-        },
-        "model_name": data.get("model_name"),
-        "openai_api_base": data.get("openai_api_base"),
-        "openai_api_key": data.get("openai_api_key")
-    }
-    # print(config)
+
+async def convert_config(config: ConfigRequest,model_type: str = Query(..., description="模型类型")):
+    global agent
+    global train_model
+    config = config.dict()
+    config["train_data_directory"] = "./train_data/"+config["train_model_name"]
+    config["path"] = "./train_data/"+config["train_model_name"]
+    print(config)
     train_model = ChromaDB_VectorStore(config=config)
     train_model.build_tabel_schema_train_data_from_conn()  # 获取表结构 必须要的
 
-    agent = Text2SqlAgentAutoSelectTable(
-        train_model, use_exmple_question=True, save_flow_graph=True)
+    if(model_type == "AutoSelectTable"):
+        agent = Text2SqlAgentAutoSelectTable(
+            train_model, use_exmple_question=True, save_flow_graph=True)
+    if(model_type == "AutoSelectAspect"):
+        train_model.build_grouped_tables()
+        agent = Text2SqlAgentAutoSelectTable(
+            train_model, use_exmple_question=True, save_flow_graph=True)
+
 
     
     return {"status": "success", "message": "Configuration saved successfully"}

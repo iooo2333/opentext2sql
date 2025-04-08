@@ -24,5 +24,5 @@ agent = Text2SqlAgentAutoSelectTable(
     my_train, use_exmple_question=True, save_flow_graph=True)
 # agent = Text2SqlAgentAutoSelectAspect(
 #     my_train, use_exmple_question=True, save_flow_graph=True)
-# dbret = agent.ask("查询有哪些歌手")
+# dbret = agent.ask("查询")
 # # print(dbret)
