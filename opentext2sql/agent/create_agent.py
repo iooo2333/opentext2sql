@@ -6,7 +6,7 @@ from typing import Annotated
 from typing_extensions import TypedDict
 from langchain_core.messages import AIMessage
 from langgraph.graph.message import AnyMessage, add_messages
-
+import time
 
 class State(TypedDict):
     messages: Annotated[list[AnyMessage], add_messages]
@@ -316,9 +316,12 @@ class Text2SqlAgentAutoSelectTable():
         return sql
 
     def ask(self, input):
+        start_time = time.time()  # 记录开始时间
         sql = self.generate_sql(input=input)
         db_return = self.train_model.run_sql(sql)
-        return db_return
+        end_time = time.time()  # 记录结束时间
+        run_time = end_time - start_time  # 计算运行时间
+        return db_return, run_time  # 返回数据库结果和运行时间
 
 
 class Text2SqlAgentAutoSelectAspectNodes(Text2SqlAgentAutoSelectTableNodes):
