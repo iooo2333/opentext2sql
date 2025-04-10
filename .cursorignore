@@ -1,0 +1,38 @@
+# 依赖目录
+node_modules/
+venv/
+.env/
+__pycache__/
+
+# 构建输出
+dist/
+build/
+out/
+
+# IDE 和编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# 日志文件
+*.log
+logs/
+
+# 环境变量文件
+.env
+.env.local
+.env.*.local
+
+# 缓存文件
+.cache/
+.npm/
+.yarn/
+
+# 测试覆盖率报告
+coverage/
+
+# 临时文件
+tmp/
+temp/ 
