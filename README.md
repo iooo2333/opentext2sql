@@ -1,5 +1,7 @@
 <!-- en -->
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 # RAG Training SQL Generator
 
 This project provides a RAG-based training framework for generating SQL queries. By training on question-SQL pairs, it automatically constructs SQL queries. Using ChromaDB as the vector store and multiple agents (for table selection and table grouping), this package supports multiple database configurations (e.g., PostgreSQL and SQLite) and automatically builds training data from an Excel file.
